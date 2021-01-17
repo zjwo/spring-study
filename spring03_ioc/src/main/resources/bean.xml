@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--把创建对象的方式交给 spring 来管理 -->
+    <!--service层-->
+    <bean id="accountService" class="cn.imzjw.service.impl.AccountServiceImpl"/>
+    <!--dao层-->
+    <bean id="accountDao" class="cn.imzjw.dao.impl.AccountDaoImpl"/>
+
+</beans>
