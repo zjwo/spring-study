@@ -1,5 +1,6 @@
 package cn.imzjw.ui;
 
+import cn.imzjw.dao.IAccountDao;
 import cn.imzjw.service.IAccountService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -20,6 +21,8 @@ public class Client {
 	public static void main(String[] args) {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
 		IAccountService service = ac.getBean("accountService", IAccountService.class);
-		service.saveAccount();
+		IAccountDao dao = (IAccountDao) ac.getBean("accountDao");
+		System.out.println(service);
+		System.out.println(dao);
 	}
 }
