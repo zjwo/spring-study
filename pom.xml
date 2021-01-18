@@ -12,6 +12,7 @@
         <module>spring02_factory</module>
         <module>spring03_ioc</module>
         <module>spring04_bean</module>
+        <module>spring05_di</module>
     </modules>
     <packaging>pom</packaging>
 
