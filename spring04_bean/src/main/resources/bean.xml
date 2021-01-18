@@ -23,7 +23,19 @@
     <!--<bean id="accountService" factory-bean="instanceFactory" factory-method="getAccountService"/>-->
 
     <!--第三种方式：使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象，并存入 spring 容器）-->
-    <bean id="accountService" class="cn.imzjw.factory.StaticFactory" factory-method="getAccountService"/>
+    <!--<bean id="accountService" class="cn.imzjw.factory.StaticFactory" factory-method="getAccountService"/>-->
+
+    <!-- ==================== bean 的作用范围========================= -->
+    <!-- bean 标签的 scope 属性
+        作用：用于指定 bean 的作用范围
+        取值：常用的就是 单例 和 多例
+            singleton: 单例的（默认值）
+            prototype: 多例的
+            request: 作用于 web 应用的请求范围
+            session: 作用于 web 应用的会话范围
+            global-session: 作用于集群环境的会话范围 (全局会话范围)，当不是集群坏境时，它就是 session
+    -->
+    <bean id="accountService" class="cn.imzjw.service.impl.AccountServiceImpl" scope="prototype"/>
 
 
 </beans>
