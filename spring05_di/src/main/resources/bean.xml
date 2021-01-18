@@ -23,6 +23,7 @@
             第三种：使用注解
     -->
 
+    <!-- ================================构造函数注入=============================================-->
     <!--构造函数注入
         使用的标签: constructor-arg
         标签出现的位置：bean 标签的内部
@@ -47,6 +48,7 @@
 
     <bean id="now" class="java.util.Date"/>
 
+    <!-- ================================ Set 方法注入=============================================-->
     <!-- Set 方法注入 （⭐更常用）
         涉及的标签：property
         标签出现的位置：bean 标签的内部
@@ -65,4 +67,55 @@
         <property name="date" ref="now"/>
     </bean>
 
+    <!-- ================================复杂类型注入=============================================-->
+    <!--复杂类型注入 / 集合类型注入
+        用于给 list 结构集合注入的标签有：list、array、set
+        用于给 map 结构集合注入的标签有：map、properties
+        总结：结构相同，标签可以互换
+    -->
+    <bean id="accountService3" class="cn.imzjw.service.impl.AccountServiceImpl3">
+        <!--数组-->
+        <property name="str">
+            <array>
+                <value>小嘉</value>
+                <value>是真的</value>
+                <value>帅啊</value>
+            </array>
+        </property>
+
+        <!-- List -->
+        <property name="list">
+            <list>
+                <value>我是</value>
+                <value>list</value>
+            </list>
+        </property>
+
+        <!-- Set -->
+        <property name="set">
+            <set>
+                <value>我是</value>
+                <value>set</value>
+            </set>
+        </property>
+
+        <!-- Map -->
+        <property name="map">
+            <map>
+                <entry key="小嘉" value="是真的帅啊"/>
+                <!--另一种写法-->
+                <entry key="我真的喜欢">
+                    <value>小嘉</value>
+                </entry>
+            </map>
+        </property>
+
+        <!-- Properties -->
+        <property name="prop">
+            <props>
+                <prop key="小嘉">真的帅啊</prop>
+                <prop key="我是">Properties</prop>
+            </props>
+        </property>
+    </bean>
 </beans>

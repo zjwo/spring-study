@@ -15,8 +15,7 @@ public class Client {
 	public static void main(String[] args) {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
 
-		// IAccountService service = ac.getBean("accountService", IAccountService.class);
-		IAccountService service = ac.getBean("accountService2", IAccountService.class);
+		IAccountService service = ac.getBean("accountService3", IAccountService.class);
 
 		service.saveAccount();
 	}
