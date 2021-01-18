@@ -35,7 +35,21 @@
             session: 作用于 web 应用的会话范围
             global-session: 作用于集群环境的会话范围 (全局会话范围)，当不是集群坏境时，它就是 session
     -->
-    <bean id="accountService" class="cn.imzjw.service.impl.AccountServiceImpl" scope="prototype"/>
+    <!--<bean id="accountService" class="cn.imzjw.service.impl.AccountServiceImpl" scope="prototype"/>-->
 
+    <!-- ==================== bean 的生命周期========================= -->
+    <!--
+        单例对象
+            出生：当容器创建时对象出生
+            活着：只要容器还在，对象一直活着
+            死亡：当容器销毁，对象消亡
+            总结：单例对象的生命周期和容器相同
+        多例对象
+            出生：当我们使用对象时 spring 框架为我们创建
+            活着：对象只要在使用过程中，就一直活着
+            死亡：当对象长时间不用，且没有别的对象引用时，由 java 的垃圾回收器回收
+    -->
+    <bean id="accountService" class="cn.imzjw.service.impl.AccountServiceImpl" scope="prototype" init-method="init"
+          destroy-method="destroy"/>
 
 </beans>

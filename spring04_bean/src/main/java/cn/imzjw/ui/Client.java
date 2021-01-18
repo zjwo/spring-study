@@ -1,7 +1,6 @@
 package cn.imzjw.ui;
 
 import cn.imzjw.service.IAccountService;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -13,13 +12,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Client {
 
 	public static void main(String[] args) {
-		ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+		// ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+		ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
 
 		IAccountService service = ac.getBean("accountService", IAccountService.class);
-		IAccountService service2 = ac.getBean("accountService", IAccountService.class);
-
-		System.out.println(service == service2);
 
 		service.saveAccount();
+
+		// 手动关闭容器
+		ac.close();
 	}
 }
