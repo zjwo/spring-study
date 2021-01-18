@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
@@ -76,31 +77,39 @@
     <bean id="accountService3" class="cn.imzjw.service.impl.AccountServiceImpl3">
         <!--数组-->
         <property name="str">
-            <array>
+            <list>
                 <value>小嘉</value>
                 <value>是真的</value>
                 <value>帅啊</value>
-            </array>
+            </list>
         </property>
 
         <!-- List -->
         <property name="list">
-            <list>
+            <array>
                 <value>我是</value>
                 <value>list</value>
-            </list>
+            </array>
         </property>
 
         <!-- Set -->
         <property name="set">
-            <set>
+            <list>
                 <value>我是</value>
                 <value>set</value>
-            </set>
+            </list>
         </property>
 
         <!-- Map -->
         <property name="map">
+            <props>
+                <prop key="小嘉">真的帅啊</prop>
+                <prop key="我是">Properties</prop>
+            </props>
+        </property>
+
+        <!-- Properties -->
+        <property name="prop">
             <map>
                 <entry key="小嘉" value="是真的帅啊"/>
                 <!--另一种写法-->
@@ -109,13 +118,8 @@
                 </entry>
             </map>
         </property>
-
-        <!-- Properties -->
-        <property name="prop">
-            <props>
-                <prop key="小嘉">真的帅啊</prop>
-                <prop key="我是">Properties</prop>
-            </props>
-        </property>
     </bean>
+
+    <bean id="accountService4" class="cn.imzjw.service.impl.AccountServiceImpl4" p:name="test" p:age="21"
+          p:date-ref="now"/>
 </beans>

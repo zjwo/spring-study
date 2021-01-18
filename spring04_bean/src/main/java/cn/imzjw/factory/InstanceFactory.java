@@ -1,5 +1,6 @@
 package cn.imzjw.factory;
 
+import cn.imzjw.service.IAccountService;
 import cn.imzjw.service.impl.AccountServiceImpl;
 
 /**
@@ -10,7 +11,7 @@ import cn.imzjw.service.impl.AccountServiceImpl;
  */
 public class InstanceFactory {
 
-	public AccountServiceImpl getAccountService() {
+	public IAccountService getAccountService() {
 		return new AccountServiceImpl();
 	}
 }
