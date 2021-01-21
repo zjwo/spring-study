@@ -19,9 +19,13 @@ public class Client {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
 
 		IAccountService service = ac.getBean("accountServiceImpl", IAccountService.class);
+		// IAccountService service2 = ac.getBean("accountServiceImpl", IAccountService.class);
 
-		// service.saveAccount();
+		// System.out.println(ac.getBean("accountDao1", IAccountDao.class));
+		service.saveAccount();
 
-		System.out.println(service);
+		// System.out.println(service == service2);
+
+		((ClassPathXmlApplicationContext) ac).close();
 	}
 }
