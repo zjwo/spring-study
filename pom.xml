@@ -14,6 +14,8 @@
         <module>spring04_bean</module>
         <module>spring05_di</module>
         <module>spring06_anno</module>
+        <module>spring07_account_xml_ioc</module>
+        <module>spring08_account_anno_ioc</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -31,6 +33,29 @@
             <version>5.2.12.RELEASE</version>
         </dependency>
 
-    </dependencies>
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>1.6</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+        </dependency>
+
+    </dependencies>
 </project>
