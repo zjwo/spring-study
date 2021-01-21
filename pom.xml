@@ -13,6 +13,7 @@
         <module>spring03_ioc</module>
         <module>spring04_bean</module>
         <module>spring05_di</module>
+        <module>spring06_anno</module>
     </modules>
     <packaging>pom</packaging>
 
