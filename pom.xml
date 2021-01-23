@@ -16,6 +16,7 @@
         <module>spring06_anno</module>
         <module>spring07_account_xml_ioc</module>
         <module>spring08_account_anno_ioc</module>
+        <module>spring09_account_anno_ioc_withoutxml</module>
     </modules>
     <packaging>pom</packaging>
 
