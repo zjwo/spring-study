@@ -1,13 +1,8 @@
 package cn.imzjw.config;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.apache.commons.dbutils.QueryRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
-import java.beans.PropertyVetoException;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * 该类是一个配置类，作用是和 bean.xml 是一样的
@@ -34,35 +29,18 @@ import java.beans.PropertyVetoException;
  *          vaLue：用于指定其他配置类的字节码。
  *                  当我们使用 Import 注解之后，有 Import 注解的类就父配置类，而导入的都是子配置类
  *
+ * PropertySource
+ *      作用：用于指定 properties 文件的位置属性:
+ *      value：指定文件的名称和路径。
+ *          关键字：classpath，表示类路径下
+ *
  * @author https://blog.imzjw.cn
  * @date 2021/1/23 17:04
  */
-@Configuration
+// @Configuration
 @ComponentScan("cn.imzjw")
+@Import(JdbcConfig.class)
+@PropertySource("classpath:db.properties")
 public class SpringConfiguration {
 
-	/**
-	 * 用于创建一个 QueryRunner 对象
-	 *
-	 * @param dataSource 数据源
-	 * @return QueryRunner
-	 */
-	@Bean(name = "runner")
-	public QueryRunner createQueryRunner(DataSource dataSource) {
-		return new QueryRunner(dataSource);
-	}
-
-	@Bean(name = "dataSource")
-	public DataSource createDataSource() {
-		ComboPooledDataSource ds = new ComboPooledDataSource();
-		try {
-			ds.setDriverClass("com.mysql.jdbc.Driver");
-			ds.setJdbcUrl("jdbc:mysql://120.25.243.164:3306/spring");
-			ds.setUser("garvey");
-			ds.setPassword("asd");
-			return ds;
-		} catch (PropertyVetoException e) {
-			throw new RuntimeException(e);
-		}
-	}
 }
