@@ -24,7 +24,7 @@ public class JdbcDemo1 {
 		Class.forName("com.mysql.jdbc.Driver");
 
 		// 2. 获取链接
-		Connection connection = DriverManager.getConnection("jdbc:mysql://120.25.243.164:3306/spring", "garvey", "asd");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/spring", "garvey", "garvey");
 
 		// 3. 获取操作数据库的预处理对象
 		PreparedStatement ps = connection.prepareStatement("SELECT * FROM account");
